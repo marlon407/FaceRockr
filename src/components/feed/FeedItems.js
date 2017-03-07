@@ -5,6 +5,10 @@ import FeedUtuils from '../../utils/FeedUtuils';
 
 export default class FeedItems extends React.Component {
 
+    /**
+     * Component lifecycle function.  See:  https://facebook.github.io/react/docs/component-specs.html#render
+     * @returns {XML}
+     */
     render() {
       const { feed, friends } = this.props;
       if (!feed || !friends) return null;

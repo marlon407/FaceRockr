@@ -13,25 +13,40 @@ const style = {
 };
 
 export default class Feed extends React.Component {
+  /**
+  * React.Component constructor.
+  */
   constructor() {
         super();
         this.state = { offset: 1 };
         this.changeHandler = this.onChange.bind(this);
     }
 
+    /**
+    * Component lifecycle function.
+    */
     componentDidMount() {
         FeedActions.getFeed();
         FeedActions.getFriends();
     }
 
+    /**
+    * Component lifecycle function.
+    */
     componentWillMount() {
         FeedStore.addChangeListener(this.changeHandler);
     }
 
+    /**
+    * Component lifecycle function.
+    */
     componentWillUnmount() {
         FeedStore.removeChangeListener(this.changeHandler);
     }
 
+    /**
+    * onChange Event Handler
+    */
     onChange() {
         const feed = FeedStore.getFeed();
         const pageCount = FeedStore.getCount();
@@ -43,6 +58,10 @@ export default class Feed extends React.Component {
         }
     }
 
+    /**
+    * Pagination Onclick Event Handler
+    * @param data
+    */
     handlePageClick = (data) => {
       let selected = data.selected;
       let offset = selected + 1;
@@ -51,6 +70,10 @@ export default class Feed extends React.Component {
       });
     }
 
+    /**
+    * Component lifecycle function.  See:  https://facebook.github.io/react/docs/component-specs.html#render
+    * @returns {XML}
+    */
     render() {
       return (
         <div className="feed">

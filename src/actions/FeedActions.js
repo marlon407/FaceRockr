@@ -11,12 +11,12 @@ export class FeedActions {
     }
 
     post(message) {
-      const url = `${AppConstants.BASE_URL}status`;
-      const data = {
-        "text": message,
-        "user": "1"
-      }
-      return Helper.postRequest(url, data, ActionTypes.NEW_POST);
+        const url = `${AppConstants.BASE_URL}status`;
+        const data = {
+          "text": message,
+          "user": "1"
+        }
+        return Helper.postRequest(url, data, ActionTypes.NEW_POST);
     }
 
     getFriends() {

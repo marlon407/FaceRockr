@@ -17,10 +17,17 @@ export default class UpdateStatusBox extends React.Component {
         this.state = {};
     }
 
+    /**
+    * Input OnChane Event Handler
+    * @param e
+    */
     onChangeText(e){
       this.setState({ newPost: e.target.value})
     }
 
+    /**
+    * RaisedButton OnClick Event Handler
+    */
     postMessage(){
       if(this.state.newPost){
         FeedActions.post(this.state.newPost);
@@ -28,6 +35,10 @@ export default class UpdateStatusBox extends React.Component {
       }
     }
 
+    /**
+    * Component lifecycle function.  See:  https://facebook.github.io/react/docs/component-specs.html#render
+    * @returns {XML}
+    */
     render() {
       return (
         <div>

@@ -15,7 +15,6 @@ class RequestUtil {
             }
         },
         (err, response, body) => {
-            console.log(response);
             if (response.statusCode >= 400) {
               dispatch(ActionTypes.SEND_MESSAGE, {message: response.statusMessage});
               return;
@@ -37,6 +36,10 @@ class RequestUtil {
               }
           },
           (err, response, body) => {
+              if (response.statusCode >= 400) {
+                dispatch(ActionTypes.SEND_MESSAGE, {message: response.statusMessage});
+                return;
+              }
               if(err){ return reject(err);}
               dispatch(callback, JSON.parse(body));
           });

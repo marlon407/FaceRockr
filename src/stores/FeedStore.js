@@ -22,14 +22,18 @@ class FeedStore extends BaseStore{
     setCount(count){this.feedCount = count;}
     getCount(){return this.feedCount;}
 
-    setPostSent(sent) { this.postSent = sent }
-    getPostSent() { return this.postSent; }
+    setPostSent(sent) { this.postSent = sent; }
+    getPostSent() {
+      const sent = this.postSent;
+      this.postSent = false;
+      return sent; 
+    }
 
     setMessage(message) { this.message = message }
     getMessage() {
       const message = this.message;
       this.message = null;
-      return message; 
+      return message;
      }
 
     _registerToActions(action) {
@@ -37,7 +41,6 @@ class FeedStore extends BaseStore{
         case ActionTypes.GET_FEED:
           this.setFeed(action.data);
           this.setCount(action.totalRows);
-          this.setPostSent(false);
           this.emitChange();
           break;
         case ActionTypes.NEW_POST:

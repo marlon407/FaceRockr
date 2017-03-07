@@ -4,6 +4,10 @@ import Avatar from 'material-ui/Avatar';
 
 export default class FriendsItems extends React.Component {
 
+    /**
+    * Component lifecycle function.  See:  https://facebook.github.io/react/docs/component-specs.html#render
+    * @returns {XML}
+    */
     render() {
 
       const { friends } = this.props;
