@@ -1,5 +1,6 @@
 import { dispatch } from '../dispatchers/AppDispatcher';
 import AppConstants from '../constants/AppConstants';
+import ActionTypes from '../constants/ActionTypes';
 import request from 'request';
 import bluebird from 'bluebird';
 
@@ -14,6 +15,11 @@ class RequestUtil {
             }
         },
         (err, response, body) => {
+            console.log(response);
+            if (response.statusCode >= 400) {
+              dispatch(ActionTypes.SEND_MESSAGE, {message: response.statusMessage});
+              return;
+            }
             if(err){ return reject(err);}
             dispatch(callback, JSON.parse(body));
         });

@@ -7,8 +7,11 @@ const style = {
   margin: "20px 50px",
 };
 
+const textStyle = {
+  padding: "10px"
+};
 
-export default class NewPost extends React.Component {
+export default class UpdateStatusBox extends React.Component {
   constructor() {
         super();
         this.state = {};
@@ -21,18 +24,17 @@ export default class NewPost extends React.Component {
     postMessage(){
       if(this.state.newPost){
         FeedActions.post(this.state.newPost);
-        this.setState({newPost: ""})
+        this.setState({ newPost: "" })
       }
     }
-
 
     render() {
       return (
         <div>
           <TextField
             style={{width: '100%'}}
-            textareaStyle={{padding: "10px"}}
-            floatingLabelStyle={{padding: "10px"}}
+            textareaStyle={textStyle}
+            floatingLabelStyle={textStyle}
             floatingLabelText="What's happening"
             multiLine={true}
             value={this.state.newPost}
@@ -40,7 +42,7 @@ export default class NewPost extends React.Component {
             rows={3}
           />
           <div style={{textAlign:'right'}}>
-            <RaisedButton onTouchTap={this.postMessage.bind(this)}  label="Post" primary={true} style={style} />
+            <RaisedButton onTouchTap={this.postMessage.bind(this)} label="Post" primary={true} style={style} />
           </div>
         </div>
       )

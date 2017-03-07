@@ -1,6 +1,7 @@
 import ActionTypes from '../constants/ActionTypes';
 import AppConstants from '../constants/AppConstants';
 import Helper from '../utils/RequestUtil';
+import { dispatch } from '../dispatchers/AppDispatcher';
 
 export class FeedActions {
 
@@ -21,6 +22,10 @@ export class FeedActions {
     getFriends() {
         const url = `${AppConstants.BASE_URL}friends?pageSize=20&pageNumber=1`;
         return Helper.getRequest(url, ActionTypes.GET_FRIENDS);
+    }
+
+    sendMessage(message) {
+        dispatch(ActionTypes.SEND_MESSAGE, { message });
     }
 }
 

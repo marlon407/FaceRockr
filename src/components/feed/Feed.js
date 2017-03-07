@@ -6,7 +6,7 @@ import Paper from 'material-ui/Paper';
 import FeedStore from '../../stores/FeedStore';
 import FeedActions from '../../actions/FeedActions';
 import FeedItems from './FeedItems';
-import NewPost from './NewPost';
+import UpdateStatusBox from './UpdateStatusBox';
 
 const style = {
   margin: 20,
@@ -15,7 +15,7 @@ const style = {
 export default class Feed extends React.Component {
   constructor() {
         super();
-        this.state = {offset: 1};
+        this.state = { offset: 1 };
         this.changeHandler = this.onChange.bind(this);
     }
 
@@ -46,7 +46,7 @@ export default class Feed extends React.Component {
     handlePageClick = (data) => {
       let selected = data.selected;
       let offset = selected + 1;
-      this.setState({offset: offset}, () => {
+      this.setState({offset: offset, feed: []}, () => {
         FeedActions.getFeed(offset);
       });
     }
@@ -55,7 +55,7 @@ export default class Feed extends React.Component {
       return (
         <div className="feed">
           <Paper style={style} zDepth={2} >
-            <NewPost />
+            <UpdateStatusBox />
             <Divider />
             <FeedItems feed={this.state.feed} friends={this.state.friends} />
             <Divider />

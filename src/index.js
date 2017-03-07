@@ -8,7 +8,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import App from './App.js';
 import Feed from './components/feed/Feed';
-import Friends from './components/Friends'
+import Friends from './components/friends/Friends'
 
 import './index.css'
 

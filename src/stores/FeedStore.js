@@ -10,6 +10,7 @@ class FeedStore extends BaseStore{
       this.feedCount = null;
       this.friends = null;
       this.postSent = false;
+      this.message = null
     }
 
     setFriends(feed){this.friends = feed;}
@@ -23,6 +24,13 @@ class FeedStore extends BaseStore{
 
     setPostSent(sent) { this.postSent = sent }
     getPostSent() { return this.postSent; }
+
+    setMessage(message) { this.message = message }
+    getMessage() {
+      const message = this.message;
+      this.message = null;
+      return message; 
+     }
 
     _registerToActions(action) {
         switch (action.type) {
@@ -38,6 +46,10 @@ class FeedStore extends BaseStore{
           break;
         case ActionTypes.GET_FRIENDS:
           this.setFriends(action.data);
+          this.emitChange();
+          break;
+        case ActionTypes.SEND_MESSAGE:
+          this.setMessage(action.message);
           this.emitChange();
           break;
         default:
