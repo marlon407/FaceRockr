@@ -1,9 +1,14 @@
 import React from 'react';
 import {List, ListItem} from 'material-ui/List';
 import Avatar from 'material-ui/Avatar';
+import Paper from 'material-ui/Paper';
 
 import FeedStore from '../stores/FeedStore';
 import FeedActions from '../actions/FeedActions';
+
+const style = {
+  margin: 20,
+};
 
 
 export default class Friends extends React.Component {
@@ -46,10 +51,12 @@ export default class Friends extends React.Component {
 
     render() {
       return (
-        <div>
-          <List>
-            {this.renderItems()}
-          </List>
+        <div className="feed">
+          <Paper style={style} zDepth={2} >
+            <List>
+              {this.renderItems()}
+            </List>
+          </Paper>
         </div>
       )
     }

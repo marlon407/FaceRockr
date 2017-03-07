@@ -18,7 +18,7 @@ export default class FeedItems extends React.Component {
           const owner = this.findOwner(item);
           return(
             <ListItem key={item.id}
-              style={{wordWrap: 'breakWord'}}
+              nestedListStyle={{wordWrap: 'breakWord'}}
               leftAvatar={<Avatar src={owner ? owner.avatar : ''} />}
               primaryText={item.text || "No message"}
               secondaryText={owner ? owner.name : 'Anonymous'} />

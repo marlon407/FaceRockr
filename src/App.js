@@ -40,8 +40,6 @@ export default class App extends React.Component {
       >
         <MenuItem primaryText="Feed" onTouchTap={() => {hashHistory.push('/feed')}} />
         <MenuItem primaryText="Friends" onTouchTap={() => {hashHistory.push('/friends')}} />
-        <MenuItem primaryText="Help" />
-        <MenuItem primaryText="Sign out" />
       </IconMenu>
     );
   }
@@ -49,21 +47,21 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-          <AppBar
-            title="FaceRockr"
-            onTitleTouchTap={()=>this.props.router.push('/')}
-            iconElementRight={this.rightElement()}
-          >
-          </AppBar>
-          <br/>
+        <AppBar
+          title="FaceRockr"
+          style={{cursor: 'pointer'}}
+
+          iconElementLeft={<a href="http://coderockr.com/images/hand-white.svg" />}
+
+          onTitleTouchTap={()=>this.props.router.push('/')}
+          iconElementRight={this.rightElement()}/>
 
         {this.props.children}
         <Snackbar
           open={this.state.open}
           message="Post Sent Successfully!"
           autoHideDuration={4000}
-          onRequestClose={this.handleRequestClose}
-        />
+          onRequestClose={this.handleRequestClose}/>
       </div>
     )
   }

@@ -4,7 +4,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import FeedActions from '../../actions/FeedActions';
 
 const style = {
-  margin: 50,
+  margin: "20px 50px",
 };
 
 
@@ -31,7 +31,8 @@ export default class NewPost extends React.Component {
         <div>
           <TextField
             style={{width: '100%'}}
-            hintText="Tell us what's happening"
+            textareaStyle={{padding: "10px"}}
+            floatingLabelStyle={{padding: "10px"}}
             floatingLabelText="What's happening"
             multiLine={true}
             value={this.state.newPost}
