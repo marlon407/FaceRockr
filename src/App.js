@@ -35,12 +35,9 @@ export default class App extends React.Component {
         <AppBar
           title="FaceRockr"
           style={{cursor: 'pointer'}}
-
           iconElementLeft={<a href="http://coderockr.com/images/hand-white.svg" />}
-
           onTitleTouchTap={()=>this.props.router.push('/feed')}
           iconElementRight={<RightElement />}/>
-
         {this.props.children}
         <Snackbar
           open={this.state.open}

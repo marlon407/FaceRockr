@@ -10,16 +10,11 @@ export default class RightElement extends React.Component {
   render() {
     return (
       <IconMenu
-        iconButtonElement={
-          <IconButton ><MoreVertIcon /></IconButton>
-        }
+        iconButtonElement={<IconButton ><MoreVertIcon /></IconButton>}
         targetOrigin={{horizontal: 'right', vertical: 'top'}}
-        anchorOrigin={{horizontal: 'right', vertical: 'top'}}
-      >
-        <MenuItem primaryText="Feed"
-          containerElement={<Link to="/feed" />} />
-        <MenuItem primaryText="Friends"
-          containerElement={<Link to="/friends" />} />
+        anchorOrigin={{horizontal: 'right', vertical: 'top'}}>
+          <MenuItem primaryText="Feed"  containerElement={<Link to="/feed" />} />
+          <MenuItem primaryText="Friends" containerElement={<Link to="/friends" />} />
       </IconMenu>
     );
   }

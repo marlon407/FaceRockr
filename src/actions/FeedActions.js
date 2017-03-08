@@ -10,7 +10,7 @@ export class FeedActions {
         return Helper.getRequest(url, ActionTypes.GET_FEED);
     }
 
-    post(message) {
+    updateStatus(message) {
         const url = `${AppConstants.BASE_URL}status`;
         const data = {
           "text": message,

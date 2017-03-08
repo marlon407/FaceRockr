@@ -25,6 +25,11 @@ Run the server
 $ npm start
 ```
 
+Run tests
+```bash
+$ npm test
+```
+
 ###Build
 
 Serving the build folder with a static server via script

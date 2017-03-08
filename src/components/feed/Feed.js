@@ -55,6 +55,7 @@ export default class Feed extends React.Component {
         this.setState({feed, pageCount, friends});
         if(postSent){
           FeedActions.getFeed(this.state.offset);
+          FeedActions.sendMessage("Status updated!")
         }
     }
 

@@ -2,6 +2,8 @@ import React from 'react';
 import { List, ListItem } from 'material-ui/List';
 import Avatar from 'material-ui/Avatar';
 
+import EmptyListItem from '../EmptyListItem';
+
 export default class FriendsItems extends React.Component {
 
     /**
@@ -11,7 +13,7 @@ export default class FriendsItems extends React.Component {
     render() {
 
       const { friends } = this.props;
-      if (!friends) return null;
+      if (!friends) return <EmptyListItem primaryText="No friends to show"/>;
       const items = friends.map((item) => {
         return(
           <ListItem key={item.id}

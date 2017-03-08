@@ -30,8 +30,10 @@ export default class UpdateStatusBox extends React.Component {
     */
     postMessage(){
       if(this.state.newPost){
-        FeedActions.post(this.state.newPost);
+        FeedActions.updateStatus(this.state.newPost);
         this.setState({ newPost: "" })
+      }else{
+        FeedActions.sendMessage("This post appears to be blank. Please write something!")
       }
     }
 
